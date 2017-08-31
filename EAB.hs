@@ -21,19 +21,5 @@ data E = Var Nombre|N Int| True | False | VB Bool|If E E E|Suma E E| Prod E E|Lt
 type Sust = (Nombre, E)
 
 ------------------------------------------------------
-fv :: E -> [Nombre]
-fv (N n) = []
-fv (Var x) = [x]
-fv (Neg x) = fv x
-fv (Pred x) = fv x
-fv (Suc x) = fv x
-fv (Iz x) = fv x
-fv (Suma x y) = fv x `union` fv y
-fv (Prod x y) = fv x `union` fv y
-fv (Ltn x y) = fv x `union` fv y
-fv (Eqn x y) = fv x `union` fv y
-fv (Conj x y) = fv x `union` fv y
-fv (Disy x y) = fv x `union` fv y
-fv (If x y z) = fv x `union` fv y `union` fv z
-fv (Let w x y) = [z |  z <- fv x ++ fv y, z /= w]
+
 
